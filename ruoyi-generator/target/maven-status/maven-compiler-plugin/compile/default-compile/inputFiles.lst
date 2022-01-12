@@ -1,0 +1,13 @@
+/Users/nolovekiller/eclipse-workspace/RuoYi/ruoyi-generator/src/main/java/com/ruoyi/generator/domain/GenTableColumn.java
+/Users/nolovekiller/eclipse-workspace/RuoYi/ruoyi-generator/src/main/java/com/ruoyi/generator/service/impl/GenTableColumnServiceImpl.java
+/Users/nolovekiller/eclipse-workspace/RuoYi/ruoyi-generator/src/main/java/com/ruoyi/generator/service/IGenTableColumnService.java
+/Users/nolovekiller/eclipse-workspace/RuoYi/ruoyi-generator/src/main/java/com/ruoyi/generator/domain/GenTable.java
+/Users/nolovekiller/eclipse-workspace/RuoYi/ruoyi-generator/src/main/java/com/ruoyi/generator/util/GenUtils.java
+/Users/nolovekiller/eclipse-workspace/RuoYi/ruoyi-generator/src/main/java/com/ruoyi/generator/mapper/GenTableMapper.java
+/Users/nolovekiller/eclipse-workspace/RuoYi/ruoyi-generator/src/main/java/com/ruoyi/generator/service/IGenTableService.java
+/Users/nolovekiller/eclipse-workspace/RuoYi/ruoyi-generator/src/main/java/com/ruoyi/generator/util/VelocityUtils.java
+/Users/nolovekiller/eclipse-workspace/RuoYi/ruoyi-generator/src/main/java/com/ruoyi/generator/util/VelocityInitializer.java
+/Users/nolovekiller/eclipse-workspace/RuoYi/ruoyi-generator/src/main/java/com/ruoyi/generator/config/GenConfig.java
+/Users/nolovekiller/eclipse-workspace/RuoYi/ruoyi-generator/src/main/java/com/ruoyi/generator/mapper/GenTableColumnMapper.java
+/Users/nolovekiller/eclipse-workspace/RuoYi/ruoyi-generator/src/main/java/com/ruoyi/generator/controller/GenController.java
+/Users/nolovekiller/eclipse-workspace/RuoYi/ruoyi-generator/src/main/java/com/ruoyi/generator/service/impl/GenTableServiceImpl.java

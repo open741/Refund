@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysRefundMapper">
+    
+    <resultMap type="SysRefund" id="SysRefundResult">
+        <result property="refundId"    column="refund_id"    />
+        <result property="submissionDate"    column="submission_date"    />
+        <result property="submitBatch"    column="submit_batch"    />
+        <result property="companyName"    column="company_name"    />
+        <result property="taxNum"    column="tax_num"    />
+        <result property="area"    column="area"    />
+        <result property="team"    column="team"    />
+        <result property="receiptCode"    column="receipt_code"    />
+        <result property="receiptNum"    column="receipt_num"    />
+        <result property="dealDate"    column="deal_date"    />
+        <result property="companyType"    column="company_type"    />
+        <result property="bankAddr"    column="bank_addr"    />
+        <result property="accountName"    column="account_name"    />
+        <result property="accountNum"    column="account_num"    />
+        <result property="redCode"    column="red_code"    />
+        <result property="redNum"    column="red_num"    />
+        <result property="contactName"    column="contact_name"    />
+        <result property="phoneNum"    column="phone_num"    />
+        <result property="refundDate"    column="refund_date"    />
+        <result property="refundStatus"    column="refund_status"    />
+        <result property="failedResult"    column="failed_result"    />
+        <result property="notes"    column="notes"    />
+    </resultMap>
+
+    <sql id="selectSysRefundVo">
+        select refund_id, submission_date, submit_batch, company_name, tax_num, area, team, receipt_code, receipt_num, deal_date, company_type, bank_addr, account_name, account_num, red_code, red_num, contact_name, phone_num, refund_date, refund_status, failed_result, notes from refund_tbl
+    </sql>
+
+    <select id="selectSysRefundList" parameterType="SysRefund" resultMap="SysRefundResult">
+        <include refid="selectSysRefundVo"/>
+        <where>  
+            <if test="submissionDate != null "> and submission_date = #{submissionDate}</if>
+            <if test="submitBatch != null  and submitBatch != ''"> and submit_batch = #{submitBatch}</if>
+            <if test="companyName != null  and companyName != ''"> and company_name like concat('%', #{companyName}, '%')</if>
+            <if test="taxNum != null  and taxNum != ''"> and tax_num = #{taxNum}</if>
+            <if test="area != null  and area != ''"> and area like concat('%', #{area}, '%')</if>
+            <if test="team != null  and team != ''"> and team = #{team}</if>
+            <if test="receiptCode != null  and receiptCode != ''"> and receipt_code = #{receiptCode}</if>
+            <if test="receiptNum != null  and receiptNum != ''"> and receipt_num = #{receiptNum}</if>
+            <if test="dealDate != null  and dealDate != ''"> and deal_date = #{dealDate}</if>
+            <if test="companyType != null  and companyType != ''"> and company_type = #{companyType}</if>
+            <if test="bankAddr != null  and bankAddr != ''"> and bank_addr = #{bankAddr}</if>
+            <if test="accountName != null  and accountName != ''"> and account_name like concat('%', #{accountName}, '%')</if>
+            <if test="accountNum != null  and accountNum != ''"> and account_num = #{accountNum}</if>
+            <if test="redCode != null  and redCode != ''"> and red_code = #{redCode}</if>
+            <if test="redNum != null  and redNum != ''"> and red_num = #{redNum}</if>
+            <if test="contactName != null  and contactName != ''"> and contact_name like concat('%', #{contactName}, '%')</if>
+            <if test="phoneNum != null  and phoneNum != ''"> and phone_num = #{phoneNum}</if>
+            <if test="refundDate != null "> and refund_date = #{refundDate}</if>
+            <if test="refundStatus != null  and refundStatus != ''"> and refund_status = #{refundStatus}</if>
+            <if test="failedResult != null  and failedResult != ''"> and failed_result = #{failedResult}</if>
+            <if test="notes != null  and notes != ''"> and notes = #{notes}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysRefundByRefundId" parameterType="Integer" resultMap="SysRefundResult">
+        <include refid="selectSysRefundVo"/>
+        where refund_id = #{refundId}
+    </select>
+        
+    <insert id="insertSysRefund" parameterType="SysRefund" useGeneratedKeys="true" keyProperty="refundId">
+        insert into refund_tbl
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="submissionDate != null">submission_date,</if>
+            <if test="submitBatch != null and submitBatch != ''">submit_batch,</if>
+            <if test="companyName != null and companyName != ''">company_name,</if>
+            <if test="taxNum != null and taxNum != ''">tax_num,</if>
+            <if test="area != null">area,</if>
+            <if test="team != null">team,</if>
+            <if test="receiptCode != null">receipt_code,</if>
+            <if test="receiptNum != null">receipt_num,</if>
+            <if test="dealDate != null">deal_date,</if>
+            <if test="companyType != null">company_type,</if>
+            <if test="bankAddr != null">bank_addr,</if>
+            <if test="accountName != null">account_name,</if>
+            <if test="accountNum != null">account_num,</if>
+            <if test="redCode != null">red_code,</if>
+            <if test="redNum != null">red_num,</if>
+            <if test="contactName != null">contact_name,</if>
+            <if test="phoneNum != null">phone_num,</if>
+            <if test="refundDate != null">refund_date,</if>
+            <if test="refundStatus != null">refund_status,</if>
+            <if test="failedResult != null">failed_result,</if>
+            <if test="notes != null">notes,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="submissionDate != null">#{submissionDate},</if>
+            <if test="submitBatch != null and submitBatch != ''">#{submitBatch},</if>
+            <if test="companyName != null and companyName != ''">#{companyName},</if>
+            <if test="taxNum != null and taxNum != ''">#{taxNum},</if>
+            <if test="area != null">#{area},</if>
+            <if test="team != null">#{team},</if>
+            <if test="receiptCode != null">#{receiptCode},</if>
+            <if test="receiptNum != null">#{receiptNum},</if>
+            <if test="dealDate != null">#{dealDate},</if>
+            <if test="companyType != null">#{companyType},</if>
+            <if test="bankAddr != null">#{bankAddr},</if>
+            <if test="accountName != null">#{accountName},</if>
+            <if test="accountNum != null">#{accountNum},</if>
+            <if test="redCode != null">#{redCode},</if>
+            <if test="redNum != null">#{redNum},</if>
+            <if test="contactName != null">#{contactName},</if>
+            <if test="phoneNum != null">#{phoneNum},</if>
+            <if test="refundDate != null">#{refundDate},</if>
+            <if test="refundStatus != null">#{refundStatus},</if>
+            <if test="failedResult != null">#{failedResult},</if>
+            <if test="notes != null">#{notes},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysRefund" parameterType="SysRefund">
+        update refund_tbl
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="submissionDate != null">submission_date = #{submissionDate},</if>
+            <if test="submitBatch != null and submitBatch != ''">submit_batch = #{submitBatch},</if>
+            <if test="companyName != null and companyName != ''">company_name = #{companyName},</if>
+            <if test="taxNum != null and taxNum != ''">tax_num = #{taxNum},</if>
+            <if test="area != null">area = #{area},</if>
+            <if test="team != null">team = #{team},</if>
+            <if test="receiptCode != null">receipt_code = #{receiptCode},</if>
+            <if test="receiptNum != null">receipt_num = #{receiptNum},</if>
+            <if test="dealDate != null">deal_date = #{dealDate},</if>
+            <if test="companyType != null">company_type = #{companyType},</if>
+            <if test="bankAddr != null">bank_addr = #{bankAddr},</if>
+            <if test="accountName != null">account_name = #{accountName},</if>
+            <if test="accountNum != null">account_num = #{accountNum},</if>
+            <if test="redCode != null">red_code = #{redCode},</if>
+            <if test="redNum != null">red_num = #{redNum},</if>
+            <if test="contactName != null">contact_name = #{contactName},</if>
+            <if test="phoneNum != null">phone_num = #{phoneNum},</if>
+            <if test="refundDate != null">refund_date = #{refundDate},</if>
+            <if test="refundStatus != null">refund_status = #{refundStatus},</if>
+            <if test="failedResult != null">failed_result = #{failedResult},</if>
+            <if test="notes != null">notes = #{notes},</if>
+        </trim>
+        where refund_id = #{refundId}
+    </update>
+
+    <delete id="deleteSysRefundByRefundId" parameterType="Integer">
+        delete from refund_tbl where refund_id = #{refundId}
+    </delete>
+
+    <delete id="deleteSysRefundByRefundIds" parameterType="String">
+        delete from refund_tbl where refund_id in 
+        <foreach item="refundId" collection="array" open="(" separator="," close=")">
+            #{refundId}
+        </foreach>
+    </delete>
+
+</mapper>
